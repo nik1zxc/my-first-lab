@@ -284,11 +284,11 @@ export default function App() {
                       { img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-14.jpg?raw=true' },
 
                     ].map((route, i) => (
-                  <div key={i} className="group relative h-190 border border-white/10 overflow-hidden rounded-sm hover:border-brand-red transition-all duration-500">
+                  <div key={i} className="group relative h-200 border border-white/10 overflow-hidden rounded-sm hover:border-brand-red transition-all duration-500">
                      <img 
                           src={route.img} 
                           alt={route.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-107" 
                         />
                             </div>
                          ))}
