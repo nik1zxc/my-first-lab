@@ -288,7 +288,7 @@ export default function App() {
                      <img 
                           src={route.img} 
                           alt={route.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-101" 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-95" 
                         />
                             </div>
                          ))}
