@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTOUR ALMATY - Горы ждут тебя</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <header class="nav-header">
+        <div class="nav-container">
+            <div class="logo">XTOUR <span>ALMATY</span></div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active">Главная</a>
+                <a href="#" class="nav-link">Маршруты</a>
+                <a href="#" class="nav-link">Туры</a>
+                <a href="#" class="nav-link">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero-section">
+        <div class="overlay-gradient"></div>
+        
+        <video class="video-background" autoplay muted loop playsinline>
+            <!-- Приоритет пользовательскому файлу -->
+            <source src="https://raw.githubusercontent.com/nik1zxc/video/main/videogit.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-quad-bike-on-a-dirt-road-in-the-mountains-34443-large.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Горы ждут</h1>
+            <h2 class="hero-subtitle">тебя</h2>
+            <p class="hero-description">
+                Исследуй Заилийский Алатау с командой профессионалов. Только лучшее снаряжение и проверенные маршруты.
+            </p>
+            <button class="btn-primary">Начать приключение</button>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-text">SCROLL</div>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Секция контента (место под React-вкладки) -->
+    <main id="app-content" style="background: #0A0A0A; padding: 100px 0;">
+        <!-- Здесь в основном приложении динамически меняется контент -->
+    </main>
+</body>
+</html>

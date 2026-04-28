@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XTOUR ALMATY - Горы ждут тебя</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-red: #E21E1E;
+            --brand-black: #0A0A0A;
+            --brand-white: #FFFFFF;
+            --brand-gray: #1A1A1A;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 30px 0;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8), transparent);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            color: var(--brand-white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--brand-red);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--brand-white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 1;
+            color: var(--brand-red);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: var(--brand-black);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55; 
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, 
+                rgba(10,10,10,0.1) 0%, 
+                rgba(10,10,10,0.4) 60%, 
+                rgba(10,10,10,0.9) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        .title-group {
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -0.06em;
+        }
+
+        .title-top {
+            display: block;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            color: var(--brand-white);
+        }
+
+        .title-bottom {
+            display: block;
+            font-size: clamp(4.5rem, 12vw, 8.5rem);
+            color: var(--brand-red);
+            margin-top: -5px;
+        }
+
+        .hero-desc {
+            margin: 30px auto;
+            max-width: 600px;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--brand-red);
+            color: var(--brand-white);
+            text-decoration: none;
+            padding: 22px 48px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(226, 30, 30, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: var(--brand-white);
+            color: var(--brand-red);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .scroll-text {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--brand-red), transparent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--brand-white);
+            animation: scrollLineAnim 2s infinite ease-in-out;
+        }
+
+        @keyframes scrollLineAnim {
+            0% { transform: translateY(-100%); }
+            50%, 100% { transform: translateY(100%); }
+        }
+
+        /* АДАПТИВНОСТЬ ДЛЯ МОБИЛОК */
+        @media (max-width: 768px) {
+            header { padding: 20px 0; }
+            nav { display: none; } /* Можно заменить на бургер-меню */
+            .hero-content { padding-bottom: 50px; }
+            .hero-desc { font-size: 1rem; }
+            .cta-button { padding: 18px 36px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">XTOUR <span>ALMATY</span></a>
+            <nav>
+                <a href="#" class="active">Главная</a>
+                <a href="#routes">Маршруты</a>
+                <a href="#tours">Туры</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <!-- Видео фон -->
+            <div class="video-container">
+                <video autoplay muted loop playsinline preload="auto">
+                    <!-- 1. Ваш прикрепленный файл (если он лежит рядом с html) -->
+                    <source src="https://raw.githubusercontent.com/nik1zxc/video/main/videogit.mp4" type="video/mp4">
+                    <!-- 2. Запасное видео из сети для примера -->
+                    <source src="https://raw.githubusercontent.com/nik1zxc/video/main/videogit.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+                <div class="overlay"></div>
+            </div>
+
+            <!-- Контент -->
+            <div class="hero-content">
+                <div class="title-group">
+                    <span class="title-top">Горы ждут</span>
+                    <span class="title-bottom">Тебя</span>
+                </div>
+                <p class="hero-desc">
+                    Исследуй Заилийский Алатау с командой профессионалов. <br>
+                    Только лучшее снаряжение и драйвовые маршруты.
+                </p>
+                <a href="#contacts" class="cta-button">Начать приключение</a>
+            </div>
+
+            <div class="scroll-down">
+                <span class="scroll-text">SCROLL</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <section id="contacts" style="background: var(--brand-black); padding: 100px 20px; text-align: center;">
+            <h2 style="font-weight: 900; text-transform: uppercase; font-size: 2.5rem; color: var(--brand-white);">Контакты</h2>
+            <p style="margin-top: 20px; opacity: 0.6;">Здесь будет форма обратной связи или карта</p>
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.background = 'linear-gradient(to bottom, rgba(10,10,10,0.8), transparent)';
+                header.style.padding = '30px 0';
+            }
+        });
+    </script>
+</body>
+</html>
