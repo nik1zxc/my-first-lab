@@ -288,7 +288,7 @@ export default function App() {
                     ].map((route, i) => (
                       <div key={i} className="group relative bg-white/5 border border-white/10 overflow-hidden rounded-sm hover:border-brand-red transition-all duration-500 pb-12">
                         <div className="h-64 overflow-hidden">
-                          <img src={route.img} alt={route.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                          <img src={route.img} alt={route.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 " />
                         </div>
                         <div className="px-8 pt-8">
                           <h3 className="text-2xl font-black font-display mb-4 text-brand-red uppercase">{route.title}</h3>
