@@ -402,7 +402,7 @@ export default function App() {
                         </div>
                         <div>
                           <h4 className="text-xs uppercase tracking-widest text-white/30 font-bold mb-1">Наш адрес</h4>
-                          <p className="text-xl md:text-2xl font-bold">г. Алматы, пр. Аль-Фараби, БЦ «Нурлы Тау»</p>
+                          <p className="text-xl md:text-2xl font-bold">г.Алматы, ул. Кокшокы , 4/3</p>
                         </div>
                       </div>
 
