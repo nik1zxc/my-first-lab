@@ -279,9 +279,9 @@ export default function App() {
                   </h2>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
-                      { title: 'БАО и пик Советов', desc: 'Классический маршрут с потрясающим видом на бирюзовое озеро. Идеально для первого восхождения на 4000м.', img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000&auto=format&fit=crop' },
-                      { title: 'Кок-Жайляу', desc: 'Легкий и невероятно живописный треккинг, идеально подходящий для семейного отдыха и новичков.', img: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1000&auto=format&fit=crop' },
-                      { title: 'Озера Кольсай и Каинды', desc: 'Многодневное путешествие к жемчужинам Северного Тянь-Шаня. Прозрачная вода и затонувший лес.', img: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1000&auto=format&fit=crop' },
+                      { title: 'БАО и пик Советов', desc: 'Классический маршрут с потрясающим видом на бирюзовое озеро. Идеально для первого восхождения на 4000м.', img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-28-40.jpg' },
+                      { title: 'Кок-Жайляу', desc: 'Легкий и невероятно живописный треккинг, идеально подходящий для семейного отдыха и новичков.', img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-05.jpg' },
+                      { title: 'Озера Кольсай и Каинды', desc: 'Многодневное путешествие к жемчужинам Северного Тянь-Шаня. Прозрачная вода и затонувший лес.', img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-14.jpg' },
                       { title: 'Пик Фурманова', desc: 'Знаменитые качели над облаками. Умеренная сложность и лучший вид на город Алматы.', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1000&auto=format&fit=crop' },
                       { title: 'Ледник Богдановича', desc: 'Ледяной мир в часе езды от города. Прогулка по древнему леднику и посещение ледяных пещер.', img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop' },
                       { title: 'Бутаковский водопад', desc: 'Короткий прогулочный маршрут к ледяным водопадам. Глоток свежего воздуха для всей семьи.', img: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1000&auto=format&fit=crop' },
