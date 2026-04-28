@@ -279,7 +279,7 @@ export default function App() {
                   </h2>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
-                      { title: 'БАО и пик Советов', desc: 'Классический маршрут с потрясающим видом на бирюзовое озеро. Идеально для первого восхождения на 4000м.', img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-28-40.jpg?raw=true' },
+                      {  img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-28-40.jpg?raw=true' },
                       { title: 'Кок-Жайляу', desc: 'Легкий и невероятно живописный треккинг, идеально подходящий для семейного отдыха и новичков.', img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-05.jpg?raw=true' },
                       { title: 'Озера Кольсай и Каинды', desc: 'Многодневное путешествие к жемчужинам Северного Тянь-Шаня. Прозрачная вода и затонувший лес.', img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-14.jpg?raw=true' },
                       { title: 'Пик Фурманова', desc: 'Знаменитые качели над облаками. Умеренная сложность и лучший вид на город Алматы.', img: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1000&auto=format&fit=crop' },
