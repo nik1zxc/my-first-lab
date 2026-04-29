@@ -235,13 +235,13 @@ export default function App() {
                       <div className="mt-8 flex flex-wrap gap-4">
                         <div className="bg-white/5 border border-white/10 p-6 rounded-lg flex-1 min-w-[200px]">
                           <div className="text-brand-red mb-4"><Mountain size={32} /></div>
-                          <h4 className="text-lg font-bold mb-2">5+ лет</h4>
-                          <p className="text-sm text-white/50">Профессиональной организации походов</p>
+                          <h4 className="text-lg font-bold mb-2">Более 5 лет</h4>
+                          <p className="text-sm text-white/50">Профессионального опыта и организации </p>
                         </div>
                         <div className="bg-white/5 border border-white/10 p-6 rounded-lg flex-1 min-w-[200px]">
                           <div className="text-brand-red mb-4"><Compass size={32} /></div>
-                          <h4 className="text-lg font-bold mb-2">100+</h4>
-                          <p className="text-sm text-white/50">Уникальных маршрутов в коллекции</p>
+                          <h4 className="text-lg font-bold mb-2">2000 + участников</h4>
+                          <p className="text-sm text-white/50">Получили незабываемые эмоции от поездок</p>
                         </div>
                       </div>
                     </div>
