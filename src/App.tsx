@@ -79,73 +79,76 @@ export default function App() {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-brand-black text-brand-white selection:bg-brand-red selection:text-white" ref={containerRef}>
-      {/* Navigation */}
-      <nav 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-brand-black/90 backdrop-blur-md py-4' : 'bg-transparent py-8'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <div 
-            className="text-2xl font-black font-display tracking-tighter cursor-pointer"
-            onClick={() => handleTabChange('home')}
-          >
-            XTOUR <span className="text-brand-red">ALMATY</span>
-          </div>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleTabChange(item.id)}
-                className={`text-sm uppercase tracking-widest font-bold transition-all hover:text-brand-red ${
-                  activeTab === item.id ? 'text-brand-red' : 'text-brand-white/70'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Toggle */}
-          <button 
-            className="md:hidden text-brand-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+return (
+  <div className="min-h-screen bg-brand-black text-brand-white selection:bg-brand-red selection:text-white" ref={containerRef}>
+    {/* Navigation - Теперь это только узкая полоска сверху */}
+    <nav 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-brand-black/90 backdrop-blur-md py-4' : 'bg-transparent py-8'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div 
+          className="text-2xl font-black font-display tracking-tighter cursor-pointer"
+          onClick={() => handleTabChange('home')}
+        >
+          XTOUR <span className="text-brand-red">ALMATY</span>
         </div>
 
+        {/* Desktop Nav */}
+        <div className="hidden md:flex gap-8">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleTabChange(item.id)}
+              className={`text-sm uppercase tracking-widest font-bold transition-all hover:text-brand-red ${
+                activeTab === item.id ? 'text-brand-red' : 'text-brand-white/70'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Toggle */}
+        <button 
+          className="md:hidden text-brand-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+    </nav>
         {/* Mobile Menu Overlay */}
-       <AnimatePresence>
+      <AnimatePresence>
   {isMenuOpen && (
     <motion.div
-      initial={{ opacity: 0 }} // Сделаем появление чуть мягче
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-brand-black z-[60] flex flex-col items-center justify-center md:hidden"
+      // h-[100dvh] — это важно, чтобы меню всегда было на весь экран телефона
+      // flex-nowrap и overflow-hidden предотвратят смещение
+      className="fixed inset-0 bg-brand-black z-[100] flex flex-col items-center justify-center md:hidden h-[100dvh] w-screen overflow-hidden"
+      style={{ touchAction: 'none' }} // Отключает случайные свайпы на фоне
     >
-      {/* Кнопка закрытия — теперь она на виду */}
+      {/* Кнопка закрытия */}
       <button 
         onClick={() => setIsMenuOpen(false)}
-        className="absolute top-8 right-6 text-brand-white p-2 hover:text-brand-red transition-colors"
+        className="absolute top-8 right-6 text-brand-white p-2 z-[110]"
       >
         <X size={32} />
       </button>
 
-      {/* Твой список navItems остается без изменений, он хорош */}
-      <div className="flex flex-col items-center gap-10">
+      {/* Контейнер для ссылок с жестким центрированием */}
+      <div className="flex flex-col items-center justify-center gap-8 w-full">
         {navItems.map((item, index) => (
           <motion.button
             key={item.id}
-            initial={{ opacity: 0, x: 50 }} // Вылет справа для динамики
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
             onClick={() => handleTabChange(item.id)}
-            className={`text-5xl font-black font-display uppercase tracking-tighter ${
+            className={`text-4xl font-black font-display uppercase tracking-tighter ${
               activeTab === item.id ? 'text-brand-red' : 'text-brand-white'
             }`}
           >
@@ -153,12 +156,16 @@ export default function App() {
           </motion.button>
         ))}
       </div>
-      
-      {/* Соцсети внизу — супер решение */}
+
+      <div className="absolute bottom-10">
+        <p className="text-brand-white/20 text-[10px] uppercase tracking-widest font-bold">
+          XTOUR ALMATY
+        </p>
+      </div>
     </motion.div>
   )}
 </AnimatePresence>
-      </nav>
+      
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
