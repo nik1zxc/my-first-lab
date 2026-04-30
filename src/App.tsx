@@ -113,28 +113,51 @@ export default function App() {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: '100%' }}
-              className="fixed inset-0 bg-brand-black z-40 flex flex-col items-center justify-center gap-8 md:hidden"
-            >
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleTabChange(item.id)}
-                  className={`text-3xl font-black font-display uppercase tracking-tighter ${
-                    activeTab === item.id ? 'text-brand-red' : 'text-brand-white'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+       <AnimatePresence>
+  {isMenuOpen && (
+    <motion.div
+      initial={{ opacity: 0, x: '100%' }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: '100%' }}
+      transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+      className="fixed inset-0 bg-brand-black z-50 flex flex-col items-center justify-center md:hidden"
+    >
+      {/* Кнопка закрытия внутри самого меню */}
+      <button 
+        onClick={() => setIsMenuOpen(false)}
+        className="absolute top-6 right-6 text-brand-white p-2"
+      >
+        <X size={32} />
+      </button>
+
+      <div className="flex flex-col items-center gap-8">
+        {navItems.map((item, index) => (
+          <motion.button
+            key={item.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }} // Поочередное появление
+            onClick={() => {
+              handleTabChange(item.id);
+              setIsMenuOpen(false); // Закрываем меню после выбора раздела
+            }}
+            className={`text-4xl font-black font-display uppercase tracking-tighter transition-colors ${
+              activeTab === item.id ? 'text-brand-red' : 'text-brand-white hover:text-brand-red'
+            }`}
+          >
+            {item.label}
+          </motion.button>
+        ))}
+      </div>
+
+      {/* Дополнительно: соцсети внизу меню */}
+      <div className="absolute bottom-10 flex gap-6 text-brand-white">
+        <Instagram size={24} className="hover:text-brand-red cursor-pointer" />
+        <Phone size={24} className="hover:text-brand-red cursor-pointer" />
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
       </nav>
 
       {/* Hero Section */}
