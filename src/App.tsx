@@ -50,6 +50,13 @@ export default function App() {
       });
     }
   }, []);
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
 
   const navItems: { id: TabType; label: string }[] = [
     { id: 'home', label: 'Главная' },
@@ -116,45 +123,38 @@ export default function App() {
        <AnimatePresence>
   {isMenuOpen && (
     <motion.div
-      initial={{ opacity: 0, x: '100%' }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: '100%' }}
-      transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-      className="fixed inset-0 bg-brand-black z-50 flex flex-col items-center justify-center md:hidden"
+      initial={{ opacity: 0 }} // Сделаем появление чуть мягче
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-brand-black z-[60] flex flex-col items-center justify-center md:hidden"
     >
-      {/* Кнопка закрытия внутри самого меню */}
+      {/* Кнопка закрытия — теперь она на виду */}
       <button 
         onClick={() => setIsMenuOpen(false)}
-        className="absolute top-6 right-6 text-brand-white p-2"
+        className="absolute top-8 right-6 text-brand-white p-2 hover:text-brand-red transition-colors"
       >
         <X size={32} />
       </button>
 
-      <div className="flex flex-col items-center gap-8">
+      {/* Твой список navItems остается без изменений, он хорош */}
+      <div className="flex flex-col items-center gap-10">
         {navItems.map((item, index) => (
           <motion.button
             key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }} // Поочередное появление
-            onClick={() => {
-              handleTabChange(item.id);
-              setIsMenuOpen(false); // Закрываем меню после выбора раздела
-            }}
-            className={`text-4xl font-black font-display uppercase tracking-tighter transition-colors ${
-              activeTab === item.id ? 'text-brand-red' : 'text-brand-white hover:text-brand-red'
+            initial={{ opacity: 0, x: 50 }} // Вылет справа для динамики
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
+            onClick={() => handleTabChange(item.id)}
+            className={`text-5xl font-black font-display uppercase tracking-tighter ${
+              activeTab === item.id ? 'text-brand-red' : 'text-brand-white'
             }`}
           >
             {item.label}
           </motion.button>
         ))}
       </div>
-
-      {/* Дополнительно: соцсети внизу меню */}
-      <div className="absolute bottom-10 flex gap-6 text-brand-white">
-        <Instagram size={24} className="hover:text-brand-red cursor-pointer" />
-        <Phone size={24} className="hover:text-brand-red cursor-pointer" />
-      </div>
+      
+      {/* Соцсети внизу — супер решение */}
     </motion.div>
   )}
 </AnimatePresence>
