@@ -19,7 +19,7 @@ import {
   ChevronRight,
   Phone
 } from 'lucide-react';
-
+import './index.css';
 // --- Types ---
 type TabType = 'home' | 'routes' | 'tours' | 'contact';
 
