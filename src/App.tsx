@@ -189,7 +189,7 @@ return (
             poster="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?q=80&w=2070"
           >
             {/* The user-provided file might be named this in some contexts */}
-            <source src="https://raw.githubusercontent.com/nik1zxc/video/main/videogit.mp4" type="video/mp4" />
+            <source src="/videogit.mp4" type="video/mp4" />
             {/* Mixkit fallback that is known to work */}
             <source src="https://assets.mixkit.co/videos/preview/mixkit-quad-bike-on-a-dirt-road-in-the-mountains-34443-large.mp4" type="video/mp4" />
             <source src="https://assets.mixkit.co/videos/preview/mixkit-mountain-peaks-covered-with-snow-and-clouds-2325-large.mp4" type="video/mp4" />
@@ -310,9 +310,9 @@ return (
                   </h2>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
-                      { img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-28-40.jpg?raw=true' },
-                      {  img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-05.jpg?raw=true' },
-                      { img: 'https://github.com/nik1zxc/video/blob/main/photo_2026-04-28_18-29-14.jpg?raw=true' },
+                      { img: '/1marc.jpg' },
+                      { img: '/2marc.jpg' },
+                      { img: '/3marc.jpg' },
 
                     ].map((route, i) => (
                   <div key={i} className="group relative h-180 border border-white/10 overflow-hidden rounded-sm hover:border-brand-red transition-all duration-500">
